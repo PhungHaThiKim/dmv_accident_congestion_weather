@@ -93,9 +93,18 @@ Bridge logic uses **hour-based equi-joins** (fa.time_sk = fw.time_sk ± 0/1 hr) 
 
 ## 🚀 5. Airflow Pipeline
 
-Main DAG:
+Main DAG: src/airflow/dags/accident_transfo
+### **TaskGroup: silver_transform**
 
+| Task | Description |
+|------|-------------|
+| `load_silver_accidents` | Bronze → Silver |
+| `load_silver_congestion` | Bronze → Silver |
+| `load_silver_weather` | Bronze → Silver |
 
+### **TaskGroup: gold_transform**
 
-## 📁 2. Project Structure
+- Build all dimensions
+- Build fact tables
+- Build bridge tables
 
