@@ -14,6 +14,22 @@ This project implements a complete **data lakehouse pipeline** for three large-s
 | **US Traffic Congestions (2016–2022)** | Kaggle | ~26M |
 | **US Weather Events (2016–2022)** | Kaggle | ~2.5M |
 
+Instead of processing all **7–30 million records** from the full Kaggle datasets, we strategically **filter the data to only 4 major U.S. cities**, each representing a different regional climate zone:
+
+| City               | Region      | Climate                     | Motivation                                        |
+|--------------------|-------------|-----------------------------|---------------------------------------------------|
+| **New York City** (NY) | Northeast   | Humid Continental          | Four-season variation, snow, coastal storms       |
+| **Chicago** (IL)       | Midwest     | Continental / Lake-influenced | Heavy snow, extreme winter, dense traffic         |
+| **Los Angeles** (CA)   | West Coast  | Mediterranean              | Dry summers, minimal rain, high congestion        |
+| **Miami** (FL)         | Southeast   | Tropical Monsoon          | Heavy rain, hurricanes, frequent flooding         |
+
+### 🎯 Key Benefits of Using These Four Cities
+
+- **Realistic but manageable dataset size** for ClickHouse + Airflow processing  
+- **Coverage of four distinct U.S. climate zones** → ideal for cross-region comparative analytics  
+- **Clear, interpretable demo dashboards** without the noise of nationwide data  
+- **Faster development and testing cycles** while still reflecting real-world data complexity  
+
 The pipeline follows a structured **Bronze → Silver → Gold** architecture and enables analytics through **Superset dashboards**.
 
 Technologies used:
