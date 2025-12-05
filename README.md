@@ -37,7 +37,7 @@ make build-airflow
 make up-airflow
 make up-superset
 ```
-- Initialize schema: python src/init_data_clickhouse.py
+- Initialize schema: ```python src/init_data_clickhouse.py```
 ---
 
 
