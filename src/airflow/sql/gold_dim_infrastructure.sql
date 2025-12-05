@@ -1,0 +1,46 @@
+INSERT INTO gold.dim_infrastructure (
+    infra_key,
+    has_amenity,
+    has_bump,
+    has_crossing,
+    has_give_way,
+    has_junction,
+    has_no_exit,
+    has_railway,
+    has_roundabout,
+    has_station,
+    has_stop,
+    has_traffic_calming,
+    has_traffic_signal,
+    has_turning_loop
+)
+SELECT DISTINCT
+    cityHash64(
+        toUInt8(Amenity),
+        toUInt8(Bump),
+        toUInt8(Crossing),
+        toUInt8(Give_Way),
+        toUInt8(Junction),
+        toUInt8(No_Exit),
+        toUInt8(Railway),
+        toUInt8(Roundabout),
+        toUInt8(Station),
+        toUInt8(Stop),
+        toUInt8(Traffic_Calming),
+        toUInt8(Traffic_Signal),
+        toUInt8(Turning_Loop)
+    ) AS infra_key,
+    Amenity,
+    Bump,
+    Crossing,
+    Give_Way,
+    Junction,
+    No_Exit,
+    Railway,
+    Roundabout,
+    Station,
+    Stop,
+    Traffic_Calming,
+    Traffic_Signal,
+    Turning_Loop
+FROM silver.accidents;

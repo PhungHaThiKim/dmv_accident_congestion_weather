@@ -1,0 +1,6 @@
+data/accidents/
+data/us_congestion_2016_2022/
+data/WeatherEvents/
+
+src/airflow/logs/
+**/logs/
